@@ -61,5 +61,78 @@
 # print(humman.get_voice())
 # print(humman)
 
+#задача про книгу
+# class Book:
+#     def __init__(self, name: str, autor: str, pages: int) -> None:
+#         self.name = name
+#         self.autor = autor
+#         self.pages = pages
+#
+#     def open_this_page(self, nomber: int) -> None:
+#         if nomber < self.pages:
+#             print(f"Книга открылась на странице номер {nomber}, ведь она это может")
+#         else:
+#             print(" в данном экземпляре нет столько страниц, дорогой товарисчщ")
+#
+#     def __str__(self):
+#         return f"Представляем вашему вниманию книгу {self.name} за авторством уважаемого (или нет) {self.autor} будет держать вас в напряжении на всех {self.pages} страницах"
+#
+#
+# conan = Book("Конан варвар", "Роберт И. Говард", 522)
+# print(conan)
+# print("пробуем открыть на странице 714")
+# conan.open_this_page(714)
+# print("пробуем открыть на странице 212")
+# conan.open_this_page(212)
+# print(conan)
+
+# задача про альбом
+class MusicAlbum:
+    def __init__(self, artist: str, name: str, track_list: list) -> None:
+        self.artist = artist
+        self.name = name
+        self.track_list = track_list
+
+    def __str__(self):
+        return f"альбом <{self.name}>, за авторством {self.artist}, спикок треков :{self.track_list}"
+
+    def add_track(self, track: str) -> None:
+        self.track_list.append(track)
+        print(f"Трек {track} добавлен в альбом")
+
+    def remove_track(self, track) -> None:
+        if track in self.track_list:
+            self.track_list.remove(track)
+            print(f"Трек {track} удален из альбома")
+        else:
+            print("Дружище, такого трека нет")
+
+    def play_track(self, track) -> None:
+        if track in self.track_list:
+            print(f"Трек <{track}> из альбома <{self.name}> радует нас своим звучанием")
+        else:
+            print("Дружище, такого трека нет, послушай чего нибудь другое")
 
 
+pygacheva = ["какое то там лето", "арлекино", "даром преподаватели"]
+sytkin = ["Москва- Нева", "7 тысяч над землей", "далеко"]
+jb = ["Кимоно Винокура", "Музыкальный патриот"]
+
+alla = MusicAlbum("Алла Борисна", "Broskina - the madam", pygacheva)
+valera = MusicAlbum("Валерий Сюткин", "То, что надо", sytkin)
+pacany = MusicAlbum("Джордано Бруно", "Можно не запивать", jb)
+
+print(alla)
+alla.add_track("Айсберг")
+print(alla)
+alla.remove_track("арлекино")
+print(alla)
+
+print(valera)
+print("удаляем трек то что надо")
+valera.remove_track("то что надо")
+valera.add_track("то что надо")
+print(valera)
+
+print(pacany)
+pacany.play_track("Музыкальный патриот")
